@@ -3,12 +3,18 @@ import * as Yup from "yup";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
 import { postData } from '../../core/services/api';
+import { useState } from "react";
+import Loader from "../../shared/pages/loader/Loader";
 
 const initialValues = { email: "", password: "" };
  
 const Login = () => {
   const { login } = useAuth();
+  const [loading, setLoading] = useState(false);
+
   return (
+    <>
+    {loading && <Loader />}
     <div className="login-container">
       <div className="login-box">
         <h1 className="login-title">Welcome Back</h1>
@@ -25,11 +31,14 @@ const Login = () => {
               username: 'emilys',
               password: 'emilyspass'
             }
+            setLoading(true);
             postData('auth/login', payload).then((res) => {
               console.log(res);
               login(values);
             }).catch((err) => {
               console.log(err);
+            }).finally(() => {
+              setLoading(false);
             });
           
           }}
@@ -74,6 +83,7 @@ const Login = () => {
         </Formik>
       </div>
     </div>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@ const MainLayout = () => {
       <div className="layout">
         {/* <Sidebar /> */}
         <main className={`main-content ${isSidebarMinimized ? 'minimized' : ''}`}>
-          {/* <Header /> */}
+          <Header />
           <Outlet />
         </main>
       </div>
