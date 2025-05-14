@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "../layout/MainLayout";
-import AuthLayout from "../layout/AuthLayout";
-import Dashboard from "../components/main/Dashbord";
+import MainLayout from "../layout/mainLayout/MainLayout";
+import AuthLayout from "../layout/authLayout/AuthLayout";
+import Dashboard from "../components/main/Dashboard";
 import Login from "../components/auth/Login";
 const AppRoutes = () => { 
   return (
