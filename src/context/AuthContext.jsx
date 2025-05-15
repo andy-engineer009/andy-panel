@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
@@ -10,13 +10,13 @@ export const AuthProvider = ({ children }) => {
   const [isSidebarMinimized, setIsSidebarMinimized] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem('user') && localStorage.getItem('token')) {
-      navigate('/dashboard');
-    } else {
-      navigate('/login');
-    }
-  }, []);
+  // useEffect(() => {
+  //   // if (localStorage.getItem('user') && localStorage.getItem('token')) {
+  //   //   navigate('/dashboard');
+  //   // } else {
+  //   //   navigate('/login');
+  //   // }
+  // }, []);
 
   // logout function
   const login = (values) => {
