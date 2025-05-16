@@ -7,6 +7,7 @@ import AuthLayout from './layout/authLayout/AuthLayout';
 import Dashboard from './components/main/Dashboard';
 import Login from './components/auth/Login';
 import NotFound from './shared/pages/notFound/NotFound';
+import User from './components/main/User/User';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route element={<PrivateRoutes />}>
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/user" element={<User />} />
           <Route index element={<Dashboard />} />
         </Route>
       </Route>

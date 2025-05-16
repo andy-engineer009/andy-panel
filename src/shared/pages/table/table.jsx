@@ -1,5 +1,5 @@
 
-const Table =({data, columns}) => {
+const Table =({data, columns,handleEdit,handleDelete}) => {
 
     return (    
         <div>
@@ -14,9 +14,11 @@ const Table =({data, columns}) => {
             <tbody>
                 {data.map((row,index) => (
                     <tr key={index}>
-                        <td>{row.id}</td>
-                        <td>{row.name}</td>
-                        <td>{row.age}</td>
+                        {columns.map((column,index) => (
+                            <td key={index}>{row[column]}</td>
+                        ))}
+                        <td onClick={() => handleEdit(row)}>edit</td>
+                        <td onClick={() => handleDelete(row)}>delete</td>
                     </tr>
                 ))}
             </tbody>
